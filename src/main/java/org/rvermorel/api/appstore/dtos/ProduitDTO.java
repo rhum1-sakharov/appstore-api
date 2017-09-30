@@ -8,7 +8,7 @@ public class ProduitDTO {
     private String libelle;
     private String description;
     private BigDecimal prix;
-    private Integer idImage;
+
 
     public Integer getId() {
         return id;
@@ -42,11 +42,5 @@ public class ProduitDTO {
         this.prix = prix;
     }
 
-    public Integer getIdImage() {
-        return idImage;
-    }
 
-    public void setIdImage(Integer idImage) {
-        this.idImage = idImage;
-    }
 }

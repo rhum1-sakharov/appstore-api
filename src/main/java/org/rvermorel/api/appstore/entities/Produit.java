@@ -14,14 +14,6 @@ public class Produit {
     private String description;
     private BigDecimal prix;
 
-    @Column(name = "id_image", insertable = false,updatable = false)
-    private Integer idImage;
-
-    @ManyToOne
-    @JoinColumn(name = "id_image",referencedColumnName = "id")
-    private Image image;
-
-
     public Integer getId() {
         return id;
     }
@@ -55,19 +47,5 @@ public class Produit {
     }
 
 
-    public Image getImage() {
-        return image;
-    }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
-    public Integer getIdImage() {
-        return idImage;
-    }
-
-    public void setIdImage(Integer idImage) {
-        this.idImage = idImage;
-    }
 }

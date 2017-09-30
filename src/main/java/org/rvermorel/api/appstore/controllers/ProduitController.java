@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "produit")
+@RequestMapping(path = "produits")
 public class ProduitController {
 
     @Autowired
