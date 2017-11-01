@@ -2,6 +2,7 @@ package org.rvermorel.api.appstore.entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name="produits")
@@ -13,6 +14,9 @@ public class Produit {
     private String libelle;
     private String description;
     private BigDecimal prix;
+
+    @OneToMany(mappedBy = "produit")
+    private List<ImageProduit> imageProduitList;
 
     public Integer getId() {
         return id;
@@ -47,5 +51,11 @@ public class Produit {
     }
 
 
+    public List<ImageProduit> getImageProduitList() {
+        return imageProduitList;
+    }
 
+    public void setImageProduitList(List<ImageProduit> imageProduitList) {
+        this.imageProduitList = imageProduitList;
+    }
 }

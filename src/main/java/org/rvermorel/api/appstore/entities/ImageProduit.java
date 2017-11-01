@@ -9,8 +9,10 @@ public class ImageProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     @Column(name="id_produit",insertable = false,updatable = false)
     private Integer idProduit;
+
     @Column(name="id_image",insertable = false,updatable = false)
     private Integer idImage;
 
