@@ -2,9 +2,14 @@ package org.rvermorel.api.appstore.daos;
 
 import org.rvermorel.api.appstore.entities.Role;
 import org.rvermorel.api.appstore.entities.Utilisateur;
+import org.rvermorel.api.appstore.models.JwtUser;
 import org.rvermorel.api.appstore.repositories.RoleRepo;
 import org.rvermorel.api.appstore.repositories.UtilisateurRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +32,7 @@ public class UtilisateurDao {
             utilisateur.setEmail(email);
             utilisateur.setFirstname(firstname);
             utilisateur.setLastname(lastname);
-            utilisateur.setPassword(password);
+            utilisateur.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
             utilisateur = utilisateurRepo.save(utilisateur);
         }else{
             utilisateur = utilisateurDb;
@@ -38,6 +43,7 @@ public class UtilisateurDao {
 
         return utilisateur;
     }
+
 
 
 }

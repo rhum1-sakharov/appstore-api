@@ -7,6 +7,7 @@ import org.rvermorel.api.appstore.repositories.ProduitRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -20,9 +21,9 @@ public class ImageController {
     public @ResponseBody
     byte[] getImage(@PathVariable("id") Integer id) {
 
-        Optional<Image> image = imageRepo.findById(id);
-        if (image.isPresent()) {
-            return image.get().getImage();
+       Image image = imageRepo.findOne(id);
+        if (!Objects.isNull(image)) {
+            return image.getImage();
         }
 
         return null;

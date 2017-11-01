@@ -8,6 +8,10 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UtilisateurRepo extends CrudRepository<Utilisateur,Integer>{
 
+    @Query("select u from Utilisateur  u " +
+            " inner join fetch u.utilisateurRoleList ur " +
+            " inner join fetch ur.role r " +
+            " where u.login=?1")
     Utilisateur findByLogin(String login);
 
     @Modifying
