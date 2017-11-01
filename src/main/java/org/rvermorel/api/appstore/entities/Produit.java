@@ -9,7 +9,7 @@ import java.util.List;
 public class Produit {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String libelle;
     private String description;
